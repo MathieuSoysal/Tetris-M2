@@ -37,7 +37,7 @@ public class Cell {
             Cell[] cellsToColorOnWhite = new Cell[0];
             Cell[] cellsToColorOnRed = new Cell[0];
             var currentPzPiece = Cursor.getCurrentPuzzlePiece();
-            if (currentPzPiece.canPut(columnIndex, rowIndex))
+            if (currentPzPiece.canPut(columnIndex, rowIndex) && !containsUsedCell(shapeCells.get(currentPzPiece)))
                 cellsToColorOnWhite = shapeCells.get(currentPzPiece);
             else
                 cellsToColorOnRed = shapeCells.get(currentPzPiece);
@@ -54,8 +54,10 @@ public class Cell {
         });
 
         pane.setOnMouseClicked(e -> {
-            if (Cursor.getCurrentPuzzlePiece() != PuzzlePiece.NONE && !isUsed) {
+            if (Cursor.getCurrentPuzzlePiece() != PuzzlePiece.NONE && Cursor.getCurrentPuzzlePiece().canPut(columnIndex, rowIndex) && !containsUsedCell(shapeCells.get(Cursor.getCurrentPuzzlePiece()))) {
                 App.addPuzzlePiece(Cursor.getCurrentPuzzlePiece(), pane.getLayoutX() + 15, pane.getLayoutY() + 50);
+                for (Cell cell : coloredCells)
+                    cell.isUsed = true;
                 Cursor.setPuzzleKind(PuzzlePiece.NONE);
                 App.hiddenPuzzlePieaceView();
             }

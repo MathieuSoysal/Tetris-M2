@@ -3,7 +3,7 @@ package io.github.mathieusoysal.PuzzlePieces;
 import io.github.mathieusoysal.Cell;
 import io.github.mathieusoysal.LinkManager;
 
-public class ZPuzzlePiece implements PuzzlePieceInterface {
+final class ZPuzzlePiece implements PuzzlePieceInterface {
 
     @Override
     public boolean canPut(int columnIndex, int rowIndex) {
