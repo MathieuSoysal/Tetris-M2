@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane fx:id="body" onMouseDragged="#mouseMouve" onMouseMoved="#mouseMouve" prefHeight="249.0" prefWidth="340.0" style="-fx-background-image: url(https://user-images.githubusercontent.com/43273304/235619362-4a653b7f-0c50-4648-83a8-ee2afff286e0.png); -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: gray;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.mathieusoysal.PrimaryController">
+   <children>
+      <Pane layoutX="259.0" layoutY="215.0" opacity="0.61" prefHeight="21.0" prefWidth="61.0" style="-fx-background-color: black; -fx-border-color: gray; -fx-background-radius: 2; -fx-border-radius: 2;" />
+      <Button layoutX="270.0" layoutY="68.0" mnemonicParsing="false" onMouseMoved="#mouseMouve" prefHeight="48.0" prefWidth="45.0" style="-fx-background-image: url(https://user-images.githubusercontent.com/43273304/235619848-a83781f9-3d4c-4924-abce-4169bcbb0fcd.png); -fx-background-color: none;">
+         <effect>
+            <DropShadow height="59.1" radius="26.8525" width="50.31" />
+         </effect></Button>
+      <Button layoutX="270.0" layoutY="132.0" mnemonicParsing="false" onAction="#getRandomPuzzleKind" onMouseMoved="#mouseMouve" prefHeight="48.0" prefWidth="46.0" style="-fx-background-image: url(https://user-images.githubusercontent.com/43273304/235619848-a83781f9-3d4c-4924-abce-4169bcbb0fcd.png); -fx-background-color: none;">
+         <effect>
+            <DropShadow />
+         </effect></Button>
+      <GridPane fx:id="grid" gridLinesVisible="true" layoutX="15.0" layoutY="51.0" opacity="0.65" prefHeight="138.0" prefWidth="239.0" snapToPixel="false" style="-fx-background-color: black; -fx-background-radius: 5; -fx-border-color: gray; -fx-border-width: 2; -fx-border-radius: 5;">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+         </children>
+      </GridPane>
+      <Pane layoutX="7.0" layoutY="1.0" prefHeight="25.0" prefWidth="312.0" style="-fx-background-image: url(https://user-images.githubusercontent.com/43273304/235619703-4edf8867-d5a8-44ea-ab27-57d2d79292f6.png); -fx-background-radius: 10; -fx-border-radius: 5; -fx-border-width: 1; -fx-border-color: gray;">
+         <children>
+            <Text fill="WHITE" layoutX="114.0" layoutY="17.0" strokeType="INSIDE" strokeWidth="0.0" text="Puzzle du poisson">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Text>
+         </children>
+         <effect>
+            <DropShadow blurType="GAUSSIAN" height="88.42" radius="42.9775" spread="0.33" width="85.49" />
+         </effect>
+      </Pane>
+      <Text fill="WHITE" layoutX="197.0" layoutY="231.0" strokeType="INSIDE" strokeWidth="0.0" text="Quantité">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="286.0" layoutY="229.0" strokeType="INSIDE" strokeWidth="0.0" text="1">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Text>
+      <ImageView fx:id="imagePuzzle" disable="true" fitHeight="100.0" fitWidth="99.0" layoutX="17.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
+</Pane>
