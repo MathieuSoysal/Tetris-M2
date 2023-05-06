@@ -1,9 +1,11 @@
 package io.github.mathieusoysal;
 
+import io.github.mathieusoysal.PuzzlePieces.PuzzlePiece;
+
 public class Cursor {
     private static PuzzlePiece puzzleKind = PuzzlePiece.NONE;
 
-    public static PuzzlePiece getPuzzleKind() {
+    public static PuzzlePiece getCurrentPuzzlePiece() {
         return puzzleKind;
     }
 

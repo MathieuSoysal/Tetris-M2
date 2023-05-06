@@ -2,6 +2,7 @@ package io.github.mathieusoysal;
 
 import java.io.IOException;
 
+import io.github.mathieusoysal.PuzzlePieces.PuzzlePiece;
 import javafx.fxml.FXML;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -32,7 +33,7 @@ public class PrimaryController {
                 cells[columnIndex][rowIndex] = new Cell(pane, columnIndex, rowIndex);
             }
         }
-        
+
         for (int columnIndex = 0; columnIndex < 7; columnIndex++) {
             for (int rowIndex = 0; rowIndex < 4; rowIndex++) {
                 cells[columnIndex][rowIndex].setPuzzlesShapes(cells);
@@ -44,9 +45,8 @@ public class PrimaryController {
         imagePuzzle.setVisible(false);
     }
 
-    @FXML
-    private void switchToSecondary() throws IOException {
-        App.setRoot("secondary");
+    public void becomeCellWhite(int x, int y) throws IOException {
+        grid.getChildren().get(x + y * 6).setStyle("-fx-background-color: rgba(255, 255, 255, 0.5);");
     }
 
     @FXML
@@ -62,7 +62,12 @@ public class PrimaryController {
         imagePuzzle.setLayoutX(mouseEvent.getSceneX());
         imagePuzzle.setLayoutY(mouseEvent.getSceneY() - 20);
         imagePuzzle.toFront();
-    };
+    }
+
+    @FXML
+    private void switchToSecondary() throws IOException {
+        App.setRoot("secondary");
+    }
 
     @FXML
     private void getRandomPuzzleKind() {
@@ -72,9 +77,5 @@ public class PrimaryController {
         imagePuzzle.setVisible(true);
         imagePuzzle.setFitWidth(randomPuzzleKind.getWidth());
         App.disableCursor();
-    }
-
-    public void becomeCellWhite(int x, int y) throws IOException {
-        grid.getChildren().get(x + y * 6).setStyle("-fx-background-color: rgba(255, 255, 255, 0.5);");
     }
 }
