@@ -60,6 +60,11 @@ public class App extends Application {
         scene.getRoot().getChildrenUnmodifiable().add(node);
     }
 
+    static void hiddenPuzzlePieaceView() {
+        scene.setCursor(Cursor.cursor(LinkManager.CURSOR_PICTURE_URL));
+        primaryController.imagePuzzle.setVisible(false);
+    }
+
     static void addPuzzlePiece(PuzzlePiece puzzlePiece, double x, double y) {
         var image = new ImageView(puzzlePiece.getPictureUrl());
         image.setLayoutX(x);

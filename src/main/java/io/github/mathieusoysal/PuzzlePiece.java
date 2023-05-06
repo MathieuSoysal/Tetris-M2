@@ -9,7 +9,8 @@ public enum PuzzlePiece {
     INVERSED_L(LinkManager.INVERSED_L_PICTURE_URL, 2),
     Z(LinkManager.Z_PICTURE_URL, 3),
     BIG_RECTANGLE("", 3),
-    MINI_SQUARE(LinkManager.MINI_SQUARE_PICTURE_URL, 1);
+    MINI_SQUARE(LinkManager.MINI_SQUARE_PICTURE_URL, 1),
+    NONE("", 0);
 
     private final String pictureURL;
 

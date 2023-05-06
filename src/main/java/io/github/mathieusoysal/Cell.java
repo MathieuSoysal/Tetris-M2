@@ -99,6 +99,8 @@ public class Cell {
 
         pane.setOnMouseClicked(e -> {
             App.addPuzzlePiece(Cursor.getPuzzleKind(), pane.getLayoutX() + 15, pane.getLayoutY() + 50);
+            Cursor.setPuzzleKind(PuzzlePiece.NONE);
+            App.hiddenPuzzlePieaceView();
         });
 
     }
