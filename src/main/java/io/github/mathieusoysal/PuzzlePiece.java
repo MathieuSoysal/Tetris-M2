@@ -1,5 +1,7 @@
 package io.github.mathieusoysal;
 
+import java.security.SecureRandom;
+
 import javafx.scene.image.ImageView;
 
 public enum PuzzlePiece {
@@ -37,7 +39,7 @@ public enum PuzzlePiece {
     }
 
     public static PuzzlePiece getRandomPuzzleKind() {
-        int rand = (int) (Math.random() * 6);
+        int rand = new SecureRandom().nextInt(6);
         switch (rand) {
             case 0:
                 return STICK;
