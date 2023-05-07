@@ -6,7 +6,7 @@ import io.github.mathieusoysal.LinkManager;
 final class StickPuzzlePiece implements PuzzlePieceInterface {
 
     @Override
-    public boolean canPut(int columnIndex, int rowIndex) {
+    public boolean canBePutedAt(int columnIndex, int rowIndex) {
         return rowIndex < 2;
     }
 

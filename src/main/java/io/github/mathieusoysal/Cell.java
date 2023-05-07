@@ -15,6 +15,8 @@ public class Cell {
         return Stream.of(cells).anyMatch(cell -> cell.isUsed);
     }
 
+    private Game game;
+
     Pane pane;
     int columnIndex;
     int rowIndex;
@@ -30,14 +32,15 @@ public class Cell {
         this.columnIndex = columnIndex;
         this.rowIndex = rowIndex;
         this.isUsed = false;
+        game = Game.getGameInstance();
 
         pane.setOnMouseEntered(e -> {
-            if (Cursor.getCurrentPuzzlePiece() == PuzzlePiece.NONE)
+            if (game.getCurrentPuzzlePiece() == PuzzlePiece.NONE)
                 return;
             Cell[] cellsToColorOnWhite = new Cell[0];
             Cell[] cellsToColorOnRed = new Cell[0];
-            var currentPzPiece = Cursor.getCurrentPuzzlePiece();
-            if (currentPzPiece.canPut(columnIndex, rowIndex) && !containsUsedCell(shapeCells.get(currentPzPiece)))
+            var currentPzPiece = game.getCurrentPuzzlePiece();
+            if (currentPzPiece.canBePutedAt(columnIndex, rowIndex) && !containsUsedCell(shapeCells.get(currentPzPiece)))
                 cellsToColorOnWhite = shapeCells.get(currentPzPiece);
             else
                 cellsToColorOnRed = shapeCells.get(currentPzPiece);
@@ -54,15 +57,13 @@ public class Cell {
         });
 
         pane.setOnMouseClicked(e -> {
-            if (Cursor.getCurrentPuzzlePiece() != PuzzlePiece.NONE
-                    && Cursor.getCurrentPuzzlePiece().canPut(columnIndex, rowIndex)
-                    && !containsUsedCell(shapeCells.get(Cursor.getCurrentPuzzlePiece()))) {
-                Game.getGameInstance().addPuzzlePiece(Cursor.getCurrentPuzzlePiece());
-                App.addPuzzlePiece(Cursor.getCurrentPuzzlePiece(), pane.getLayoutX() + 15, pane.getLayoutY() + 50);
+            PuzzlePiece currentPzPiece = game.getCurrentPuzzlePiece();
+            if (currentPzPiece != PuzzlePiece.NONE
+                    && currentPzPiece.canBePutedAt(columnIndex, rowIndex)
+                    && !containsUsedCell(shapeCells.get(currentPzPiece))) {
+                game.addPuzzlePiece(currentPzPiece,pane.getLayoutX(), pane.getLayoutY());
                 for (Cell cell : coloredCells)
                     cell.isUsed = true;
-                Cursor.setPuzzleKind(PuzzlePiece.NONE);
-                App.hiddenPuzzlePieaceView();
             }
         });
 

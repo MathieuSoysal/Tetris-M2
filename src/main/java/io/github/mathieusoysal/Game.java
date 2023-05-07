@@ -21,12 +21,27 @@ public class Game {
         App.getSceneController().updateNbTurn(nbTurns + "");
     }
 
-    public void addPuzzlePiece(PuzzlePiece puzzlePiece) {
+    public void addPuzzlePiece(PuzzlePiece puzzlePiece, double x, double y) {
         nbUsedCells += puzzlePiece.getSize();
+        App.addPuzzlePiece(puzzlePiece, x + 15, y + 50);
+        resetSelectedPuzzlePiece();
+        App.hiddenPuzzlePieaceView();
     }
 
     public boolean isGameFinished() {
         return nbUsedCells == NB_CELLS;
+    }
+
+    public PuzzlePiece getCurrentPuzzlePiece() {
+        return selectedPuzzlePiece;
+    }
+
+    public void selectNewPuzzlePiece() {
+        selectedPuzzlePiece = PuzzlePiece.getRandomPuzzlePiece();
+    }
+
+    public void resetSelectedPuzzlePiece() {
+        selectedPuzzlePiece = PuzzlePiece.NONE;
     }
 
     public static Game getGameInstance() {

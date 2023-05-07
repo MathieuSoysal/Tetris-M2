@@ -6,7 +6,7 @@ import io.github.mathieusoysal.LinkManager;
 final class MiniSquarePuzzlePiece implements PuzzlePieceInterface {
 
     @Override
-    public boolean canPut(int columnIndex, int rowIndex) {
+    public boolean canBePutedAt(int columnIndex, int rowIndex) {
         return true;
     }
 

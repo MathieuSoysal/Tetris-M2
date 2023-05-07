@@ -25,8 +25,11 @@ public class SceneController {
 
     Cell[][] cells = new Cell[7][4];
 
+    private Game game;
+
     public void initialize() {
         initBoard();
+        game = Game.getGameInstance();
         body.getChildren().add(new CloseButton());
 
         imagePuzzle.setImage(new Image(LinkManager.INVERSED_L_PICTURE_URL));
@@ -61,12 +64,12 @@ public class SceneController {
 
     @FXML
     private void getRandomPuzzleKind() {
-        var randomPuzzleKind = PuzzlePiece.getRandomPuzzleKind();
-        Cursor.setPuzzleKind(randomPuzzleKind);
+        game.selectNewPuzzlePiece();
+        var randomPuzzleKind = game.getCurrentPuzzlePiece();
         imagePuzzle.setImage(new Image(randomPuzzleKind.getPictureUrl()));
         imagePuzzle.setVisible(true);
         imagePuzzle.setFitWidth(randomPuzzleKind.getWidth());
-        Game.getGameInstance().incrementNbTurn();
+        game.incrementNbTurn();
         App.disableCursor();
     }
 

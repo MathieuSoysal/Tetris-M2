@@ -14,7 +14,7 @@ public enum PuzzlePiece implements PuzzlePieceInterface {
     MINI_SQUARE(new MiniSquarePuzzlePiece()),
     NONE(null);
 
-    public static PuzzlePiece getRandomPuzzleKind() {
+    public static PuzzlePiece getRandomPuzzlePiece() {
         int rand = new SecureRandom().nextInt(6);
         switch (rand) {
             case 0:
@@ -48,8 +48,8 @@ public enum PuzzlePiece implements PuzzlePieceInterface {
         return pzPiece.getPictureUrl();
     }
 
-    public boolean canPut(int columnIndex, int rowIndex) {
-        return pzPiece.canPut(columnIndex, rowIndex);
+    public boolean canBePutedAt(int columnIndex, int rowIndex) {
+        return pzPiece.canBePutedAt(columnIndex, rowIndex);
     }
 
     public Cell[] generate(int columnIndex, int rowIndex, Cell[][] cells) {

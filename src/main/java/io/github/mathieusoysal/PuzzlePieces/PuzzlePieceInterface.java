@@ -9,7 +9,7 @@ public interface PuzzlePieceInterface {
 
     String getPictureUrl();
 
-    boolean canPut(int columnIndex, int rowIndex);
+    boolean canBePutedAt(int columnIndex, int rowIndex);
 
     Cell[] generate(int columnIndex, int rowIndex, Cell[][] cells);
 
