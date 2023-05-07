@@ -1,4 +1,4 @@
-package io.github.mathieusoysal.PuzzlePieces;
+package io.github.mathieusoysal.puzzle_pieces;
 
 import io.github.mathieusoysal.Cell;
 import io.github.mathieusoysal.LinkManager;

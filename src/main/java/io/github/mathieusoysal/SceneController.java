@@ -1,6 +1,5 @@
 package io.github.mathieusoysal;
 
-import io.github.mathieusoysal.PuzzlePieces.PuzzlePiece;
 import javafx.fxml.FXML;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;

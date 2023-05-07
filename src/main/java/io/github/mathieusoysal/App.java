@@ -2,7 +2,7 @@ package io.github.mathieusoysal;
 
 import java.io.IOException;
 
-import io.github.mathieusoysal.PuzzlePieces.PuzzlePiece;
+import io.github.mathieusoysal.puzzle_pieces.PuzzlePiece;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Cursor;
@@ -74,15 +74,22 @@ public class App extends Application {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("primary.fxml"));
         Parent root = loader.load();
 
-        sceneController = loader.getController();
-        sceneController.initialize();
+        initSceneController(loader);
 
+        initScene(stage, root);
+    }
+
+    private static void initScene(Stage stage, Parent root) {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.getScene().setCursor(Cursor.cursor(
                 "https://th.bing.com/th/id/R.7aecd6f0b9897503dedfa2683a0771ed?rik=D5U6EOHEkVcodw&riu=http%3a%2f%2fwww.rw-designer.com%2fcursor-view%2f21962.png&ehk=90LHbW%2bzLbs2u3%2b8wHxPpVn6i%2b4KR690KVeZoMVv9Mw%3d&risl=&pid=ImgRaw&r=0"));
         stage.show();
+    }
 
+    private static void initSceneController(FXMLLoader loader) {
+        sceneController = loader.getController();
+        sceneController.initialize();
     }
 
     public static SceneController getSceneController() {

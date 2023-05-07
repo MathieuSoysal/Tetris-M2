@@ -1,9 +1,9 @@
-package io.github.mathieusoysal.PuzzlePieces;
+package io.github.mathieusoysal.puzzle_pieces;
 
 import io.github.mathieusoysal.Cell;
 import io.github.mathieusoysal.LinkManager;
 
-final class InversedLPuzzlePiece implements PuzzlePieceInterface {
+final class LPuzzlePiece implements PuzzlePieceInterface {
 
     @Override
     public boolean canBePutedAt(int columnIndex, int rowIndex) {
@@ -12,16 +12,16 @@ final class InversedLPuzzlePiece implements PuzzlePieceInterface {
 
     @Override
     public Cell[] generate(int columnIndex, int rowIndex, Cell[][] cells) {
-        Cell[] inversedLCells = new Cell[3];
-        inversedLCells[1] = outOfBoundProtection(columnIndex, rowIndex, cells);
-        inversedLCells[0] = outOfBoundProtection(columnIndex + 1, rowIndex, cells);
-        inversedLCells[2] = outOfBoundProtection(columnIndex + 1, rowIndex + 1, cells);
-        return inversedLCells;
+        Cell[] lCells = new Cell[3];
+        lCells[1] = outOfBoundProtection(columnIndex, rowIndex, cells);
+        lCells[0] = outOfBoundProtection(columnIndex, rowIndex + 1, cells);
+        lCells[2] = outOfBoundProtection(columnIndex + 1, rowIndex + 1, cells);
+        return lCells;
     }
 
     @Override
     public String getPictureUrl() {
-        return LinkManager.INVERSED_L_PICTURE_URL;
+        return LinkManager.L_PICTURE_URL;
     }
 
     @Override

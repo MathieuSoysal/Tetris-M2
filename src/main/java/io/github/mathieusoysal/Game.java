@@ -1,6 +1,6 @@
 package io.github.mathieusoysal;
 
-import io.github.mathieusoysal.PuzzlePieces.PuzzlePiece;
+import io.github.mathieusoysal.puzzle_pieces.PuzzlePiece;
 
 public class Game {
 
