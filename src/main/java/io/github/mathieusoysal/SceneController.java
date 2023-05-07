@@ -26,6 +26,15 @@ public class SceneController {
     Cell[][] cells = new Cell[7][4];
 
     public void initialize() {
+        initBoard();
+        body.getChildren().add(new CloseButton());
+
+        imagePuzzle.setImage(new Image(LinkManager.INVERSED_L_PICTURE_URL));
+        imagePuzzle.setDisable(true);
+        imagePuzzle.setVisible(false);
+    }
+
+    private void initBoard() {
         for (int columnIndex = 0; columnIndex < 7; columnIndex++) {
             for (int rowIndex = 0; rowIndex < 4; rowIndex++) {
                 Pane pane = new Pane();
@@ -41,10 +50,6 @@ public class SceneController {
                 cells[columnIndex][rowIndex].setPuzzlesShapes(cells);
             }
         }
-
-        imagePuzzle.setImage(new Image(LinkManager.INVERSED_L_PICTURE_URL));
-        imagePuzzle.setDisable(true);
-        imagePuzzle.setVisible(false);
     }
 
     @FXML
