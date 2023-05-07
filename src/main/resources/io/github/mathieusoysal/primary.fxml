@@ -40,18 +40,6 @@
          <children>
          </children>
       </GridPane>
-      <Pane layoutX="7.0" layoutY="1.0" prefHeight="25.0" prefWidth="312.0" style="-fx-background-image: url(https://user-images.githubusercontent.com/43273304/235619703-4edf8867-d5a8-44ea-ab27-57d2d79292f6.png); -fx-background-radius: 10; -fx-border-radius: 5; -fx-border-width: 1; -fx-border-color: gray;">
-         <children>
-            <Text fill="WHITE" layoutX="114.0" layoutY="17.0" strokeType="INSIDE" strokeWidth="0.0" text="Puzzle du poisson">
-               <font>
-                  <Font size="11.0" />
-               </font>
-            </Text>
-         </children>
-         <effect>
-            <DropShadow blurType="GAUSSIAN" height="88.42" radius="42.9775" spread="0.33" width="85.49" />
-         </effect>
-      </Pane>
       <Text fill="WHITE" layoutX="197.0" layoutY="231.0" strokeType="INSIDE" strokeWidth="0.0" text="Quantité">
          <font>
             <Font size="11.0" />

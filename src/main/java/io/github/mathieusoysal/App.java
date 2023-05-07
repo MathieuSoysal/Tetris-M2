@@ -22,11 +22,17 @@ public class App extends Application {
 
     private static SceneController sceneController;
 
+    private static Stage stage;
+
     public static void main(String[] args) {
         launch();
     }
 
     // The image follow the mouse
+
+    public static SceneController getSceneController() {
+        return sceneController;
+    }
 
     static void disableCursor() {
         scene.setCursor(Cursor.NONE);
@@ -64,21 +70,6 @@ public class App extends Application {
         return fxmlLoader.load();
     }
 
-    @Override
-    public void start(Stage stage) throws IOException {
-        stage.initStyle(StageStyle.UNDECORATED);
-
-        stage.setResizable(false);
-        stage.setTitle("Puzzle du poisson");
-
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("primary.fxml"));
-        Parent root = loader.load();
-
-        initSceneController(loader);
-
-        initScene(stage, root);
-    }
-
     private static void initScene(Stage stage, Parent root) {
         scene = new Scene(root);
         stage.setScene(scene);
@@ -92,8 +83,33 @@ public class App extends Application {
         sceneController.initialize();
     }
 
-    public static SceneController getSceneController() {
-        return sceneController;
+    public static void mouvWindow(double x, double y) {
+        stage.setX(x);
+        stage.setY(y);
+    }
+
+    public static double getStageX() {
+        return stage.getX();
+    }
+
+    public static double getStageY() {
+        return stage.getY();
+    }
+
+    @Override
+    public void start(Stage stage) throws IOException {
+        initStage(stage);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("primary.fxml"));
+        Parent root = loader.load();
+        initSceneController(loader);
+        initScene(stage, root);
+    }
+
+    private static void initStage(Stage stage) {
+        App.stage = stage;
+        stage.initStyle(StageStyle.UNDECORATED);
+        stage.setResizable(false);
+        stage.setTitle("Puzzle du poisson");
     }
 
 }

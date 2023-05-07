@@ -22,6 +22,8 @@ public class SceneController {
     @FXML
     Text nbTurn;
 
+    private WindowsPanel windowsPanel;
+
     Cell[][] cells = new Cell[7][4];
 
     private Game game;
@@ -29,8 +31,13 @@ public class SceneController {
     public void initialize() {
         initBoard();
         game = Game.getGameInstance();
-        body.getChildren().add(new CloseButton());
+        windowsPanel = new WindowsPanel();
+        var closeButton = new CloseButton();
+        body.getChildren().addAll(windowsPanel, closeButton);
+        initImagePuzzle();
+    }
 
+    private void initImagePuzzle() {
         imagePuzzle.setImage(new Image(LinkManager.INVERSED_L_PICTURE_URL));
         imagePuzzle.setDisable(true);
         imagePuzzle.setVisible(false);
@@ -70,6 +77,10 @@ public class SceneController {
         imagePuzzle.setFitWidth(randomPuzzleKind.getWidth());
         game.incrementNbTurn();
         App.disableCursor();
+    }
+
+    @FXML
+    private void mouvWindow(MouseEvent mouseEvent) {
     }
 
     public void updateNbTurn(String newNbTurn) {
