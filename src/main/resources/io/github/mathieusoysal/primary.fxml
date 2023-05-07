@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane fx:id="body" onMouseDragged="#mouseMouve" onMouseMoved="#mouseMouve" prefHeight="249.0" prefWidth="340.0" style="-fx-background-image: url(https://user-images.githubusercontent.com/43273304/235619362-4a653b7f-0c50-4648-83a8-ee2afff286e0.png); -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: gray;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.mathieusoysal.PrimaryController">
+<Pane fx:id="body" onMouseDragged="#mouseMouve" onMouseMoved="#mouseMouve" prefHeight="249.0" prefWidth="340.0" style="-fx-background-image: url(https://user-images.githubusercontent.com/43273304/235619362-4a653b7f-0c50-4648-83a8-ee2afff286e0.png); -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: gray;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.mathieusoysal.SceneController">
    <children>
       <Pane layoutX="259.0" layoutY="215.0" opacity="0.61" prefHeight="21.0" prefWidth="61.0" style="-fx-background-color: black; -fx-border-color: gray; -fx-background-radius: 2; -fx-border-radius: 2;" />
       <Button layoutX="270.0" layoutY="68.0" mnemonicParsing="false" onMouseMoved="#mouseMouve" prefHeight="48.0" prefWidth="45.0" style="-fx-background-image: url(https://user-images.githubusercontent.com/43273304/235619848-a83781f9-3d4c-4924-abce-4169bcbb0fcd.png); -fx-background-color: none;">
@@ -57,7 +57,7 @@
             <Font size="11.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="286.0" layoutY="229.0" strokeType="INSIDE" strokeWidth="0.0" text="1">
+      <Text fx:id="nbTurn" fill="WHITE" layoutX="286.0" layoutY="229.0" strokeType="INSIDE" strokeWidth="0.0" text="1">
          <font>
             <Font size="11.0" />
          </font>

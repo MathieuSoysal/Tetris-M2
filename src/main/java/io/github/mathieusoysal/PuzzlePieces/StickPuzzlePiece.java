@@ -29,4 +29,9 @@ final class StickPuzzlePiece implements PuzzlePieceInterface {
         return 1;
     }
 
+    @Override
+    public int getSize() {
+        return 3;
+    }
+
 }

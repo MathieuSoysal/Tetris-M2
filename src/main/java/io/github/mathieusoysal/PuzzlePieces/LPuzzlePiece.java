@@ -29,4 +29,9 @@ final class LPuzzlePiece implements PuzzlePieceInterface {
         return 2;
     }
 
+    @Override
+    public int getSize() {
+        return 3;
+    }
+
 }

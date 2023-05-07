@@ -29,4 +29,9 @@ final class InversedLPuzzlePiece implements PuzzlePieceInterface {
         return 2;
     }
 
+    @Override
+    public int getSize() {
+        return 3;
+    }
+
 }

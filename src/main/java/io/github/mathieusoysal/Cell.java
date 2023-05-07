@@ -54,7 +54,10 @@ public class Cell {
         });
 
         pane.setOnMouseClicked(e -> {
-            if (Cursor.getCurrentPuzzlePiece() != PuzzlePiece.NONE && Cursor.getCurrentPuzzlePiece().canPut(columnIndex, rowIndex) && !containsUsedCell(shapeCells.get(Cursor.getCurrentPuzzlePiece()))) {
+            if (Cursor.getCurrentPuzzlePiece() != PuzzlePiece.NONE
+                    && Cursor.getCurrentPuzzlePiece().canPut(columnIndex, rowIndex)
+                    && !containsUsedCell(shapeCells.get(Cursor.getCurrentPuzzlePiece()))) {
+                Game.getGameInstance().addPuzzlePiece(Cursor.getCurrentPuzzlePiece());
                 App.addPuzzlePiece(Cursor.getCurrentPuzzlePiece(), pane.getLayoutX() + 15, pane.getLayoutY() + 50);
                 for (Cell cell : coloredCells)
                     cell.isUsed = true;

@@ -13,6 +13,8 @@ public interface PuzzlePieceInterface {
 
     Cell[] generate(int columnIndex, int rowIndex, Cell[][] cells);
 
+    int getSize();
+
     default Cell outOfBoundProtection(int columnIndex, int rowIndex, Cell[][] cells) {
         if (columnIndex < 0 || rowIndex < 0 || columnIndex >= cells.length || rowIndex >= cells[0].length) {
             return null;

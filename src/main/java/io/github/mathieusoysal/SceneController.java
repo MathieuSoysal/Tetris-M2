@@ -1,7 +1,5 @@
 package io.github.mathieusoysal;
 
-import java.io.IOException;
-
 import io.github.mathieusoysal.PuzzlePieces.PuzzlePiece;
 import javafx.fxml.FXML;
 import javafx.scene.image.Image;
@@ -9,8 +7,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
 
-public class PrimaryController {
+public class SceneController {
 
     @FXML
     Pane body;
@@ -20,6 +19,9 @@ public class PrimaryController {
 
     @FXML
     GridPane grid;
+
+    @FXML
+    Text nbTurn;
 
     Cell[][] cells = new Cell[7][4];
 
@@ -45,28 +47,11 @@ public class PrimaryController {
         imagePuzzle.setVisible(false);
     }
 
-    public void becomeCellWhite(int x, int y) throws IOException {
-        grid.getChildren().get(x + y * 6).setStyle("-fx-background-color: rgba(255, 255, 255, 0.5);");
-    }
-
-    @FXML
-    void becomeWhite() throws IOException {
-        becomeCellWhite(1, 0);
-        becomeCellWhite(0, 0);
-        becomeCellWhite(2, 0);
-        becomeCellWhite(1, 1);
-    }
-
     @FXML
     void mouseMouve(MouseEvent mouseEvent) {
         imagePuzzle.setLayoutX(mouseEvent.getSceneX());
-        imagePuzzle.setLayoutY(mouseEvent.getSceneY() - 20);
+        imagePuzzle.setLayoutY(mouseEvent.getSceneY() - 25);
         imagePuzzle.toFront();
-    }
-
-    @FXML
-    private void switchToSecondary() throws IOException {
-        App.setRoot("secondary");
     }
 
     @FXML
@@ -76,6 +61,11 @@ public class PrimaryController {
         imagePuzzle.setImage(new Image(randomPuzzleKind.getPictureUrl()));
         imagePuzzle.setVisible(true);
         imagePuzzle.setFitWidth(randomPuzzleKind.getWidth());
+        Game.getGameInstance().incrementNbTurn();
         App.disableCursor();
+    }
+
+    public void updateNbTurn(String newNbTurn) {
+        nbTurn.setText(newNbTurn);
     }
 }

@@ -20,7 +20,7 @@ public class App extends Application {
 
     private static Scene scene;
 
-    private static PrimaryController primaryController;
+    private static SceneController sceneController;
 
     public static void main(String[] args) {
         launch();
@@ -46,7 +46,7 @@ public class App extends Application {
 
     static void hiddenPuzzlePieaceView() {
         scene.setCursor(Cursor.cursor(LinkManager.CURSOR_PICTURE_URL));
-        primaryController.imagePuzzle.setVisible(false);
+        sceneController.imagePuzzle.setVisible(false);
     }
 
     static void addPuzzlePiece(PuzzlePiece puzzlePiece, double x, double y) {
@@ -56,7 +56,7 @@ public class App extends Application {
         image.setDisable(true);
         image.setPreserveRatio(true);
         image.setFitWidth(puzzlePiece.getWidth());
-        primaryController.body.getChildren().add(image);
+        sceneController.body.getChildren().add(image);
     }
 
     private static Parent loadFXML(String fxml) throws IOException {
@@ -74,8 +74,8 @@ public class App extends Application {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("primary.fxml"));
         Parent root = loader.load();
 
-        primaryController = loader.getController();
-        primaryController.initialize();
+        sceneController = loader.getController();
+        sceneController.initialize();
 
         scene = new Scene(root);
         stage.setScene(scene);
@@ -83,6 +83,10 @@ public class App extends Application {
                 "https://th.bing.com/th/id/R.7aecd6f0b9897503dedfa2683a0771ed?rik=D5U6EOHEkVcodw&riu=http%3a%2f%2fwww.rw-designer.com%2fcursor-view%2f21962.png&ehk=90LHbW%2bzLbs2u3%2b8wHxPpVn6i%2b4KR690KVeZoMVv9Mw%3d&risl=&pid=ImgRaw&r=0"));
         stage.show();
 
+    }
+
+    public static SceneController getSceneController() {
+        return sceneController;
     }
 
 }

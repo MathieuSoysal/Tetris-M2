@@ -30,4 +30,9 @@ final class ZPuzzlePiece implements PuzzlePieceInterface {
         return 3;
     }
 
+    @Override
+    public int getSize() {
+        return 4;
+    }
+
 }

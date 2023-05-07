@@ -60,4 +60,8 @@ public enum PuzzlePiece implements PuzzlePieceInterface {
         return pzPiece.getImageView();
     }
 
+    public int getSize() {
+        return pzPiece.getSize();
+    }
+
 }
