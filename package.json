@@ -13,10 +13,10 @@
         "javaVersion": "17",
         "jar": "target/tetris-m2.jar",
         "javafx": true,
-        "title": "sample2",
-        "stripJavaFXFiles": false
+        "title": "sample2"
     },
     "dependencies": {
+        "jdeploy": "^4.0.22",
         "njre": "^0.2.0",
         "shelljs": "^0.8.4"
     },
