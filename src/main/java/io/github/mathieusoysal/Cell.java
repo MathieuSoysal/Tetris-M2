@@ -105,4 +105,9 @@ public class Cell {
         coloredCells = cellsToColorOnRed;
     }
 
+    public void reset() {
+        isUsed = false;
+        becomeBlack();
+    }
+
 }

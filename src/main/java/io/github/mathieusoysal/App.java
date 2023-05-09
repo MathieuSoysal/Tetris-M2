@@ -1,6 +1,7 @@
 package io.github.mathieusoysal;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import io.github.mathieusoysal.puzzle_pieces.PuzzlePiece;
 import javafx.application.Application;
@@ -55,6 +56,8 @@ public class App extends Application {
         sceneController.imagePuzzle.setVisible(false);
     }
 
+    private static ArrayList<ImageView> puzzlePieces = new ArrayList<>();
+
     static void addPuzzlePiece(PuzzlePiece puzzlePiece, double x, double y) {
         var image = new ImageView(puzzlePiece.getPictureUrl());
         image.setLayoutX(x);
@@ -62,7 +65,13 @@ public class App extends Application {
         image.setDisable(true);
         image.setPreserveRatio(true);
         image.setFitWidth(puzzlePiece.getWidth());
+        puzzlePieces.add(image);
         sceneController.body.getChildren().add(image);
+    }
+
+    public static void removePuzzlePieces() {
+        sceneController.body.getChildren().removeAll(puzzlePieces);
+        puzzlePieces.clear();
     }
 
     private static Parent loadFXML(String fxml) throws IOException {

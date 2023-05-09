@@ -26,6 +26,16 @@ public class Game {
         App.addPuzzlePiece(puzzlePiece, x + 15, y + 50);
         resetSelectedPuzzlePiece();
         App.hiddenPuzzlePieaceView();
+        if (isGameFinished()) {
+            App.getSceneController().showWinMessage();
+        }
+    }
+
+    public void reset() {
+        nbTurns = 0;
+        nbUsedCells = 0;
+        App.getSceneController().updateNbTurn(nbTurns + "");
+        App.removePuzzlePieces();
     }
 
     public boolean isGameFinished() {

@@ -9,5 +9,5 @@ public class LinkManager {
     public static final String MINI_SQUARE_PICTURE_URL = "https://user-images.githubusercontent.com/43273304/236081533-46ec9d59-d2d8-4737-9e5a-30ea80ad8fc5.png";
     public static final String CURSOR_PICTURE_URL = "https://th.bing.com/th/id/R.7aecd6f0b9897503dedfa2683a0771ed?rik=D5U6EOHEkVcodw&riu=http%3a%2f%2fwww.rw-designer.com%2fcursor-view%2f21962.png&ehk=90LHbW%2bzLbs2u3%2b8wHxPpVn6i%2b4KR690KVeZoMVv9Mw%3d&risl=&pid=ImgRaw&r=0";
     public static final String CLOSE_BUTTON_PICTURE_URL = "https://github.com/MathieuSoysal/Tetris-M2/blob/main/src/main/resources/io/github/mathieusoysal/CloseButton.png?raw=true";
-
+    public static final String BACKGROUND_IMAGE_URL = "https://user-images.githubusercontent.com/43273304/235619362-4a653b7f-0c50-4648-83a8-ee2afff286e0.png";
 }

@@ -1,6 +1,7 @@
 package io.github.mathieusoysal;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -22,6 +23,8 @@ public class SceneController {
     @FXML
     Text nbTurn;
 
+    private Popup winnerPopup;
+
     private WindowsPanel windowsPanel;
 
     Cell[][] cells = new Cell[7][4];
@@ -35,6 +38,13 @@ public class SceneController {
         var closeButton = new CloseButton();
         body.getChildren().addAll(windowsPanel, closeButton);
         initImagePuzzle();
+
+        winnerPopup = new Popup("You win !", "Play again", () -> {
+            game.reset();
+            clearBoard();
+            winnerPopup.hide();
+        });
+        body.getChildren().add(winnerPopup);
     }
 
     private void initImagePuzzle() {
@@ -79,8 +89,14 @@ public class SceneController {
         App.disableCursor();
     }
 
-    @FXML
-    private void mouvWindow(MouseEvent mouseEvent) {
+    public void showWinMessage() {
+        winnerPopup.show();
+    }
+
+    private void clearBoard() {
+        for (int columnIndex = 0; columnIndex < 7; columnIndex++)
+            for (int rowIndex = 0; rowIndex < 4; rowIndex++)
+                cells[columnIndex][rowIndex].reset();
     }
 
     public void updateNbTurn(String newNbTurn) {
